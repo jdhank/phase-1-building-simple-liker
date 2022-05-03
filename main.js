@@ -3,7 +3,25 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+document.addEventListener("DOMContentLoaded", () =>
+console.log("DOM CONTENT HAS LOADED"))
 
+const errorModal = document.querySelector("#modal")
+errorModal.classList.add("hidden")
+
+findLikes()
+function findLikes(){
+  const likeArr = document.querySelectorAll(".like-glyph")
+  
+  likeArr.forEach((singularLike) => {
+    singularLike.addEventListener("click", () => console.log("YOU FOUND ME!"))
+    mimicServerCall()
+    .then(resp => console.log(resp))
+    .catch(error => {
+      errorModal.classList.remove("hidden")
+    })
+  })
+}
 
 
 
